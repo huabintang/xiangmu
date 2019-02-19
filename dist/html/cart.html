@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>购物车- E宠商城</title>
+    <link rel="shortcut icon" type="image/x-icon" href="//static.epetbar.com/favicon.ico?v=2">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <script src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/cart.js"></script>
+</head>
+
+<body>
+    <header class="fixed">
+        <div class="headertop">
+            <p>
+                <a href="#" class="head_img">E宠首页</a>
+            </p>
+            <div class="headerl2">送至：
+            </div>
+            <div class="headerl3">
+                重庆
+                <div class="headerl4"></div>
+                <div class="place"></div>
+            </div>
+            <p class="headerl5">
+                <a class="headerl51" href="">E宠就是正品</a>
+            </p>
+            <p class="headerl6">
+                <a href="#">
+                    评论（
+                    <span>308.4万</span>）
+                </a>
+            </p>
+            <ul class="headerr fr">
+                <li class="headerr1">
+                    <span>[登陆]</span>
+                </li>
+                <li class="headerr2">
+                    <span>[注册]</span>
+                </li>
+                <li class="headerr3">
+                    <i></i>
+                    <span>购物车(
+                        <em>0</em>
+                        )</span>
+                </li>
+                <li class="headerr4">
+                    <i></i>
+                    <p class="headerr41 fl">
+                        <span>
+                            <a href="">我的E宠</a>
+                        </span>
+                        <b></b>
+                    </p>
+                    <div class="headerr42">
+                        <a href="">我的订单</a>
+                        <a href="">退换货记录</a>
+                        <a href="">我的优惠卷</a>
+                        <a href="">我的余额</a>
+                        <a href="">VIP俱乐部</a>
+                    </div>
+                </li>
+                <li class="headerr5">
+                    <P class="headerr5x">
+                        <i></i>
+                        <span>收藏</span>
+                        <b></b>
+                    </P>
+                    <div class="headerr5y">
+                        <a href="">我的收藏</a>
+                    </div>
+                </li>
+                <li class="headerr6">
+                    <i></i>
+                    <a href="">手机版</a>
+                    <img src="../img/app-code.jpg" alt="" class="erweima" style="width: 80px">
+                </li>
+                <li>
+                    <a class="cred" href="">问题反馈</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="w-max ct" style="margin-top: 50px;">
+        <div class="cart-top">
+            <div class="cart-logo fl">
+                <a href="http://www.epet.com" title="E宠网">
+                    <img src="//static.epetbar.com/www/cart/cart-logo.png" alt="购物车">
+                </a>
+            </div>
+            <div class="page-name c333 fl ml">购物车</div>
+            <form method="get" target="_blank" action="http://list.epet.com/search/main.html" id="schform">
+                <div class="cart-search fr overflow clearfix mt20">
+                    <ul class="sch_list hide">
+                    </ul>
+                    <input type="text" name="keyword" class="search-text bgwhite fl" autocomplete="off">
+                    <input name="pet_type" type="hidden" value="dog">
+                    <input name="version" type="hidden" value="2.0.0">
+                    <a href="javascript:void(0);" onclick="$('#schbutton').trigger('click');" class="cfff fr ftc">搜索</a>
+                    <button class="shide" id="schbutton" value="true" type="submit"></button>
+                </div>
+            </form>
+            <div class="clear"></div>
+        </div>
+        <div class="select-menu rela">
+            <div id="cart-menu">
+                <ul class="cart-menu clearfix nav-menu">
+                    <li id="one1" onclick="Epet.Cart.Submit.showCart();" class="current">
+                        <span class="newtips1"></span>E宠购物车
+                        <em data-name="cart_num" class="fcolor ml5">0</em>
+                    </li>
+                    <li id="one5">
+                        <a href="http://www.epetht.com/cart.html" target="_blank">
+                            <span class="newtips2"></span>E宠国际购物车</a>
+                    </li>
+                    <li id="one2" onclick="Epet.Cart.Submit.showFavors();">我的收藏
+                        <em class="fcolor ml5">?</em>
+                    </li>
+                    <li id="one3" onclick="Epet.Cart.Submit.showBought();">我购买过
+                        <em class="fcolor ml5">?</em>
+                    </li>
+                    <li id="one4" onclick="Epet.Cart.Submit.showViewed();">最近浏览
+                        <em class="fcolor ml5">6</em>
+                    </li>
+                </ul>
+                <div class="nav-currentt" style="width: 176px; left: 0px; overflow: hidden;">
+                    <div class="arrow ftc">
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-sentcity">
+                <span class="fl ft14 db c999 mt">送货至：</span>
+                <div class="rela cart-place-div fl" data-name="locationPlace">
+                    <div class="rela place-div">
+                        <div class="rela c666 mt5 place-show bgwhite pointer">
+                            <div class="clearfix place-str">重庆 渝中区</div>
+                            <b></b>
+                        </div>
+
+                        <div class="place-hide hide" align="left">
+                            <div class="citys bgwhite">
+                                <ul class="place-header">
+                                    <li class="title-province current" data-placeid="24" data-parentid="0">重庆</li>
+                                    <li class="title-city" style="display:none;" data-placeid="4974" data-parentid="24">重庆</li>
+                                    <li class="title-area" data-placeid="5115" data-parentid="4974">渝中区</li>
+                                    <li class="title-high" data-placeid="0" data-parentid="5115"></li>
+                                    <li class="title-street" data-placeid="0" data-parentid="0"></li>
+                                </ul>
+                                <div class="place-content">
+                                    <div class="place-province" data-type="province">
+                                        <div class="city-conbox bgwhite c666 mt5">
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>华北：</span>
+                                                <a href="javascript:;" data-placeid="1">北京</a>
+                                                <a href="javascript:;" data-placeid="2">天津</a>
+                                                <a href="javascript:;" data-placeid="3">河北</a>
+                                                <a href="javascript:;" data-placeid="4">山西</a>
+                                                <a href="javascript:;" data-placeid="5">内蒙古</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>华东：</span>
+                                                <a href="javascript:;" data-placeid="9">上海</a>
+                                                <a href="javascript:;" data-placeid="10">江苏</a>
+                                                <a href="javascript:;" data-placeid="11">浙江</a>
+                                                <a href="javascript:;" data-placeid="12">安徽</a>
+                                                <a href="javascript:;" data-placeid="13">福建</a>
+                                                <a href="javascript:;" data-placeid="15">山东</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>华南：</span>
+                                                <a href="javascript:;" data-placeid="20">广东</a>
+                                                <a href="javascript:;" data-placeid="28">广西</a>
+                                                <a href="javascript:;" data-placeid="21">海南</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>华中：</span>
+                                                <a href="javascript:;" data-placeid="14">江西</a>
+                                                <a href="javascript:;" data-placeid="17">河南</a>
+                                                <a href="javascript:;" data-placeid="18">湖北</a>
+                                                <a href="javascript:;" data-placeid="19">湖南</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>西南：</span>
+                                                <a href="javascript:;" data-placeid="24" class="current">重庆</a>
+                                                <a href="javascript:;" data-placeid="25">四川</a>
+                                                <a href="javascript:;" data-placeid="26">贵州</a>
+                                                <a href="javascript:;" data-placeid="27">云南</a>
+                                                <a href="javascript:;" data-placeid="29">西藏</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>西北：</span>
+                                                <a href="javascript:;" data-placeid="30">陕西</a>
+                                                <a href="javascript:;" data-placeid="31">甘肃</a>
+                                                <a href="javascript:;" data-placeid="32">青海</a>
+                                                <a href="javascript:;" data-placeid="33">宁夏</a>
+                                                <a href="javascript:;" data-placeid="34">新疆</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>东北：</span>
+                                                <a href="javascript:;" data-placeid="6">辽宁</a>
+                                                <a href="javascript:;" data-placeid="7">吉林</a>
+                                                <a href="javascript:;" data-placeid="8">黑龙江</a>
+                                            </div>
+                                            <div class="pt10 pl10 pr10 pb5">
+                                                <span>其他：</span>
+                                                <a href="javascript:;" data-placeid="22" data-index="2">香港</a>
+                                                <a href="javascript:;" data-placeid="23" data-index="2">澳门</a>
+                                                <a href="javascript:;" data-placeid="16">台湾</a>
+                                                <a href="javascript:;" data-placeid="49574" data-index="2">钓鱼岛</a>
+                                                <a href="javascript:;" data-placeid="49579" data-index="2">南沙群岛</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="place-city hide city-conbox bgwhite c666 mt5"></div>
+                                    <div class="place-area hide city-conbox bgwhite c666 mt5"></div>
+                                    <div class="place-high hide city-conbox bgwhite c666 mt5"></div>
+                                    <div class="place-street hide city-conbox bgwhite c666 mt5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contentbox">
+                <div id="con_one_1">
+                    <div class="ftc kongbai hide">
+                        <div class="null-shopcart dib">
+                            <h1 class="ft30 c999">您购物车空空的，快去选购吧！</h1>
+                            <div class="mt5 go-bbtn">
+                                <a class="sbtn mt mr20" href="javascript:;">
+                                    <span>一键购买</span>
+                                </a>
+                                <a class="sbtn mt" href="../shouye.html">
+                                    <span>去首页</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <table id="tabb" cellpadding="0" cellspacing="0" class="cart-table mt" border="0" width="100%">
+                        <th>
+                            <tr>
+                                <td colspan="5" class="pt30 pl10 pb10">
+                                    <label>
+                                        <input autocomplete="off" type="checkbox" name="check_order_1" class="fl mt5 shopmi" doclick="check">
+                                    </label>
+                                    <span class="cfff epetfh fl ml5">E宠西部中央仓</span>
+                                    <b class="fl mt5 ml rela pointer">
+                                        <img src="//static.epetbar.com/www/cart/help.jpg">
+                                        <div class="cart-tc bgwhite">
+                                            <em></em>
+                                            <i></i>
+                                            <p class="c333 ft12 ">以下商品由西部大仓发货，全国除西藏、新疆外满99元包邮（西藏、新疆满99元免首重），部分地区满58元包邮（顺丰、EMS不包邮），支持余额支付、货到付款、在线支付!</p>
+                                        </div>
+                                    </b>
+                                    <div class="baoyou-tip ymbaoyou-tip fl ml25 mt5 c666 baoyou-tip1 hide">
+                                        <span>已包邮</span> 订单已包邮
+                                    </div>
+                                    <div class="clear"></div>
+                                </td>
+                            </tr>
+                        </th>
+                        <tbody id="miid">
+                            <!-- <tr class="cart-order ">
+                                <td width="50" align="center">
+                                    <input autocomplete="off" checked="checked" type="checkbox" name="check_goods_115032" doclick="check">
+                                </td>
+                                <td width="500" valign="middle">
+                                    <div class="por-img fl overflow bgwhite ftc">
+                                        <a href="http://www.epet.com/goods/115032.html" target="_blank">
+                                            <img src="https://img1.epetbar.com/2016-06/27/14/1d1f93731e44408e907f2ba1f8e89553.jpg@!100w-c" width="80">
+                                        </a>
+                                    </div>
+                                    <div class="por-intro fl ml20 mt" style="margin-top: 30px;">
+                                        <a href="http://www.epet.com/goods/115032.html" target="_blank" class="c333">
+                                            宝路 中小型犬成犬牛肉配方粮 500g </a>
+                                    </div>
+                                    <div class="clear"></div>
+                                </td>
+                                <td width="150" align="center" style="padding-top:20px;">
+                                    <div class="buynum-wrap clearfix">
+                                        <span id="less1" doclick="changeBuyNum" act="sub" class="ft18 fl ">-</span>
+                                        <input autocomplete="off" name="gnum_115032" stock="49" oldnum="1" type="text" class="text buynum ftc fl bgwhite " value="1"
+                                            id="num" size="2">
+                                        <span doclick="changeBuyNum" act="add" id="add1" class="fl ">+</span>
+                                    </div>
+                                    <p class="c666 mtneg10">有货</p>
+                                </td>
+                                <td width="200" align="center" class="c000 bold ft14">
+                                    ￥14.50 </td>
+                                <td width="200" align="center">
+                                    <a href="javascript:;" onclick="Epet.Common.addFavors(115032)" class="c666">[收藏]</a>
+                                    <a href="javascript:;" doclick="deleteGoods" gid="115032" class="c666">[删除]</a>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                        <tfoot>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="pt30 pb10">
+                                    <div class="balance">
+                                        <div class="w-max ct">
+                                            <div class="fl c333 pl10 shengcheng">
+                                                <label class="mr20">
+                                                    <input autocomplete="off" type="checkbox" class="all-checkbox" name="check_all_">全选
+                                                </label>
+                                                <a href="javascript:;" doclick="deleteSelected" class="c333 xzs" style="visibility: hidden;">[ 删除选中商品 ]
+
+                                                </a>
+                                                <a href="javascript:;" doclick="favorSelected" class="c333 ml5 scz"style="visibility: hidden;">[ 收藏选中商品 ]</a>
+                                            </div>
+                                            <div class="fr cart-price">
+                                                总价（不含运费）:
+                                                <strong class="ft18">￥00.00</strong>
+                                                <a href="javascript:;" onclick="Epet.Cart.Submit.checkOut(this)" class="cfff epet_sensor_settlement go-balance ftc bold ft18 ml20 bggreen">去结算(0)</a>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="pt20">
+                                    <a href="../shouye.html" class="go-buy">继续购物</a>
+                                    <a href="#" class="auto-buy hide">按月自动购买</a>
+                                </td>
+                                <td colspan="3" align="right" class="pt20">
+                                    <b class="cred cart-tip mt5 hide" style="display: none;">购物车里空空的呢，挑几样宝贝再来呗~</b>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <a style="margin-bottom: 60px;display: block;" name="huangou"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-imgs ct w-max">
+                <ul class="clearfix">
+                    <li class="fl">
+                        <a class="zp ft18" href="javascript:;" target="_blank">绝对的正品</a>
+                    </li>
+                    <li class="fl">
+                        <a class="hh ft18" href="javascript:;" target="_blank">全球的好货</a>
+                    </li>
+                    <li class="fl">
+                        <a class="ck ft18" href="javascript:;" target="_blank">自家的仓库</a>
+                    </li>
+                    <li class="fl">
+                        <a class="ps ft18" href="javascript:;" target="_blank">自家的配送</a>
+                    </li>
+                    <li class="fl">
+                        <a class="bs ft18" href="javascript:;" target="_blank">养宠的帮手</a>
+                    </li>
+                    <li class="fl">
+                        <a class="cj ft18" href="javascript:;" target="_blank">小小的成绩</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-wrapper">
+            <div class="info clearfix">
+                <div class="footer-phone fl">
+                    <img class="fl mt5 dogphone" src="//static.epetbar.com/www/newFooter/dog_phone.gif">
+                    <div class="footer-number fl">
+                        <h2 class="ft14 c666 bold">售后电话：</h2>
+                        <p class="c666 ft20 mt20">400-888-9200
+                            <span class="ml5 ft12">(免长途费)</span>
+                        </p>
+                        <p class="c444 ft12 mt10">服务时间：09:00--18:30（周一到周日）</p>
+                    </div>
+                </div>
+                <div class="pay-style fl">
+                    <h2 class="ft14 c666 bold">支付方式</h2>
+                    <p class="ft14 c444 mt20">
+                        <a href="javascript:;">货到付款</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">余额支付</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">在线支付</a>
+                    </p>
+                </div>
+                <div class="peisong-style fl">
+                    <h2 class="ft14 c666 bold">配送方式</h2>
+                    <p class="ft14 c444 mt20">
+                        <a href="javascript:;">E宠快递</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">外包快递</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">物流运输</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">公司地址</a>
+                    </p>
+                </div>
+                <div class="shopping-guide fl">
+                    <h2 class="ft14 c666 bold">购物指南</h2>
+                    <p class="ft14 c444 mt20">
+                        <a href="javascript:;">退换货政策</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">常见问题</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">用户协议</a>
+                    </p>
+                </div>
+                <div class="about-us fl">
+                    <h2 class="ft14 c666 bold">关于我们</h2>
+                    <p class="ft14 c444 mt20">
+                        <a href="javascript:;">关于我们</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">仓储中心</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;">联系我们</a>
+                    </p>
+                    <p class="ft14 c444 mt5">
+                        <a href="javascript:;" target="_blank" title="应急响应">应急响应</a>
+                    </p>
+                </div>
+                <div class="app-code fl">
+                    <p class="ftc ft12">扫描下载APP</p>
+                    <p class="ftc ft12">下单更优惠</p>
+                    <a href="javascript:;" target="_blank">
+                        <img src="//static.epetbar.com/www/images/dw2.png?v=10">
+                    </a>
+                </div>
+                <div class="wx-code fl">
+                    <p class="ftc ft12">扫描关注E宠</p>
+                    <p class="ftc ft12">商城微信</p>
+                    <img src="//static.epetbar.com/www/images/app-code.jpg?v=10">
+                </div>
+            </div>
+            <div class="flink c999 rela">
+                <div class="fwrapper overflow">
+                    <span class="c999 mr5">友情链接：</span>
+                    <span class="brand-link">
+                        <a class="c999" href="javascript:;" target="_blank">E宠猫用品</a>
+                        <a class="c999" href="javascript:;" target="_blank">狗粮品牌</a>
+                        <a class="c999" href="javascript:;" target="_blank">宠物用品</a>
+                        <a class="c999" href="javascript:;" target="_blank">狗粮价格</a>
+                        <a class="c999" href="http://www.dog126.com/" target="_blank">淘狗网</a>
+                        <a class="c999" href="http://cq.ganji.com/chongwu/" target="_blank">重庆宠物</a>
+                        <a class="c999" href="http://www.goupuzi.com/" target="_blank">宠物狗</a>
+                        <a class="c999" href="http://dalian.liebiao.com" target="_blank">大连分类信息</a>
+                        <a class="c999" href="http://chongwu.huangye88.com/" target="_blank">中国宠物网</a>
+                        <a class="c999" href="http://www.diaoyu.com/" target="_blank">钓鱼之家</a>
+                        <a class="c999" href="http://luohanyu.cc/ " target="_blank">罗汉鱼</a>
+                        <a class="c999" href="http://haishui.cc/" target="_blank">海水鱼</a>
+                        <a class="c999" href="http://bj.ganji.com/chongwu/" target="_blank">北京宠物</a>
+                        <a class="c999" href="http://www.apetdog.com/" target="_blank">宠物店加盟</a>
+                        <a class="c999" href="http://www.514193.com/" target="_blank">兽药网</a>
+                    </span>
+                </div>
+                <div class="click-arrow abs">
+                    <span class="footer-arrow footer-arrow-down"></span>
+                </div>
+            </div>
+            <div class="support ftc">
+                <a href="http://www.epet.com/customer/main.html" target="_blank" title="12315消费维权">
+                    <img src="//static.epetbar.com/www/newFooter/12315.png" alt="12315消费维权">
+                </a>
+                <a href="http://webscan.360.cn/index/checkwebsite?url=www.epet.com" target="_blank" title="360网站安全">
+                    <img src="//static.epetbar.com/www/newFooter/360.png" alt="360网站安全">
+                </a>
+                <a href="https://search.szfw.org/cert/l/CX20150422007521007683" target="_blank" title="诚信网站">
+                    <img src="//static.epetbar.com/www/newFooter/chengxin.png" alt="诚信网站">
+                </a>
+                <a href="http://si.trustutn.org/info?sn=784150413013262761226" target="_blank" title="360品牌官网">
+                    <img alt="360品牌官网" src="//static.epetbar.com/www/newFooter/shiming.png">
+                </a>
+                <a href="http://guanjia.qq.com/online_server/result.html?url=www.epet.com" target="_blank" title="腾讯安全认证">
+                    <img src="//static.epetbar.com/www/newFooter/tx.png" alt="腾讯安全认证">
+                </a>
+                <a href="http://www.315online.com.cn" target="_blank" title="网上交易保障中心">
+                    <img alt="网上交易保障中心" src="//static.epetbar.com/www/newFooter/jybz.png">
+                </a>
+                <a href="http://www.cqgseb.cn/ztgsgl/WebMonitor/GUILayer/eImgMana/wzlwbayz.aspx" target="_blank" title="重庆工商">
+                    <img alt="重庆工商" src="//static.epetbar.com/www/newFooter/cqgs.png">
+                </a>
+                <span>
+                    <img src="//static.epetbar.com/www/newFooter/baiq.png" alt="2013年零售价百强企业">
+                </span>
+                <span>
+                    <img src="//static.epetbar.com/www/newFooter/wsls.png" alt="重庆网商常务理事">
+                </span>
+                <span>
+                    <img src="//static.epetbar.com/www/newFooter/sfqy.png" alt="重庆电子商务示范企业">
+                </span>
+                <span>
+                    <img src="//static.epetbar.com/www/newFooter/yxqy.png" alt="重庆优秀互联网信息服务企业">
+                </span>
+                <span>
+                    <img src="//static.epetbar.com/www/newFooter/bhdw.png" alt="小动物保护支持单位">
+                </span>
+                <span>
+                    <img src="//static.epetbar.com/www/newFooter/sjws.png" alt="重庆十佳网商第一">
+                </span>
+            </div>
+            <div class="footer-copy">
+                <p class="ftc ft12">
+                    <a href="http://www.miitbeian.gov.cn">渝ICP备10002905号-1</a>&nbsp;&nbsp;
+                    <a href="http://www.miitbeian.gov.cn">渝ICP备10002905号-3</a>
+                    <a href="http://www.epet.com/article4464.html">营业执照</a>
+                    <a href="http://www.epet.com/article4465.html">兽医经营许可证</a>　增值电信业务经营许可证：渝B2-20140042 Copyright © 2007-2018 epet.com 　重庆易宠科技有限公司</p>
+            </div>
+        </div>
+    </div>
+    <div id="rtbar" style="right: 0px; top: 0px; opacity: 1;">
+        <div class="rtcont">
+            <ul class="rtcont-up" data-name="rtbar" style="height: 472px; top: 30px;">
+                <li class="rtl bagLi">
+                    <div class="bagBox" style="display: none;">
+                        <div style="text-align: center;color: #000;padding: 50px 0;">您还没有登录，请先
+                            <a href="login.html" style="text-decoration: underline;color: red;">登录</a>。</div>
+                    </div>
+                    <a class="rtico rt-my" href="reg.html"> </a>
+                </li>
+
+                <li class="scart rtl">
+                    <div class="newdot"></div>
+                    <label>购物车
+                        <em>◆</em>
+                    </label>
+                    <a class="rtico rt-cart" href="cart.html">
+                        <span class="rtico rt-cart"></span>
+                        <div class="rt-cart-num">购物车
+                            <span>0</span>
+                        </div>
+                    </a>
+
+                </li>
+                <li class="sconsulted rtl consolutBox">
+                    <label>在线客服
+                        <em>◆</em>
+                    </label>
+                    <a href="javascript:void(0);" onclick="openSDK()" class="rtico rt-consulted pointer online-newico">
+                        <span class="rtico rt-consulted"></span>
+                        <div class="rt-consulted-qus">在线客服</div>
+                    </a>
+                </li>
+                <li class="rtl">
+                    <a class="rtico rt-order"></a>
+                    <div style="text-align: center;color: #000;" class="nologin-order">您还没有登录，请先
+                        <a href="login.html" style="text-decoration: underline;color: red;">登录</a>。</div>
+                </li>
+
+                <li class="sview rtl">
+                    <a class="rtico rt-view"></a>
+                </li>
+            </ul>
+            <ul class="rtcont-dn">
+                <li class="rtl">
+                    <a class="rtico rt-app" href="##" style="margin: 0;" rel="nofollow">
+                        <span></span>
+                    </a>
+                </li>
+                <li class="rtl">
+                    <a class="rtico rt-weixin" href="javascript:void(0);" rel="nofollow">
+                        <span></span>
+                    </a>
+                </li>
+                <li class="rtl">
+                    <a class="rtico rt-weibo" href="javascript:;" target="_blank" rel="nofollow">
+                        <span></span>
+                    </a>
+                </li>
+                <li id="hdb" class="rtl" style="display: none">
+                    <label>返回顶部
+                        <em>◆</em>
+                    </label>
+                    <a class="rtico rt-top" href="javascript:void(0);" style="visibility: visible;"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="cartbox" class="cartview" style="right: 35px; left: inherit; top: 127px; position: fixed; display: none;">
+        <div class="tancbox">
+            <div class="ftc bold ft14 mb20">您的购物车中暂无商品，赶快选择心爱的商品吧！</div>
+
+            <noscript>
+                <div style="display:inline;">
+                </div>
+            </noscript>
+        </div>
+    </div>
+</body>
+
+</html>
